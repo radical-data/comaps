@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
-import type { Map } from '../../types/Map.js';
+import type { Map } from '../../lib/types/Map.js';
 
 export async function load({ params, fetch }) {
     const response = await fetch('/maps.json');

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { Map } from '../types/Map';
+	import type { Map } from '$lib/types/Map';
 	let maps: Map[] = [];
 
 	onMount(async () => {

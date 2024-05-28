@@ -1,18 +1,17 @@
 <script>
+	import Map from '../../lib/components/Map.svelte';
+
 	export let data;
 </script>
 
-<main>
+<!-- <main> -->
 	<h1>{data.map.name}</h1>
 	<p>{data.map.description}</p>
-	<!-- Add more fields as needed -->
-</main>
+
+	<Map></Map>
+<!-- </main> -->
 
 <style>
-	main {
-		padding: 1rem;
-	}
-
 	h1 {
 		font-size: 2rem;
 	}
