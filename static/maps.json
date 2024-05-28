@@ -1,0 +1,20 @@
+[
+    {
+        "id": "aegy3l4998",
+        "name": "rotterdam",
+        "domain": "bifu8g",
+        "description": "A datawalk in central Rotterdam",
+        "created_at": "2023-05-28T14:00:00Z",
+        "last_modified": "2023-05-28T16:00:00Z",
+        "style": ""
+    },
+    {
+        "id": "aegy3l4999",
+        "name": "Guerilla Architects in Berlin",
+        "domain": "gaegv",
+        "description": "Two datawalks in Berlin about gentrification in the [x] neighbourhood",
+        "created_at": "2023-06-01T10:00:00Z",
+        "last_modified": "2023-06-01T12:00:00Z",
+        "style": ""
+    }
+]
