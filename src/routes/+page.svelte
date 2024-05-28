@@ -1,12 +1,13 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
-	let maps = [];
+	import type { Map } from '../types/Map';
+	let maps: Map[] = [];
 
 	onMount(async () => {
 		const response = await fetch('/maps.json');
 		maps = await response.json();
 
-		maps.sort((a, b) => new Date(b.last_modified) - new Date(a.last_modified));
+        maps.sort((a, b) => new Date(b.last_modified).getTime() - new Date(a.last_modified).getTime());
 	});
 </script>
 
