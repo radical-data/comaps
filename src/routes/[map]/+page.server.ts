@@ -1,16 +1,34 @@
+// src/routes/[map]/+page.server.ts
+import { supabase } from '$lib/clients/supabaseClient';
 import { error } from '@sveltejs/kit';
-import type { Map } from '../../lib/types/Map.js';
+import type { PageServerLoad } from './$types';
 
-export async function load({ params, fetch }) {
-    const response = await fetch('/maps.json');
-    const maps = await response.json();
+export const load: PageServerLoad = async ({ params }) => {
+	const { data: mapData, error: mapError } = await supabase
+		.from('maps')
+		.select('*')
+		.eq('domain', params.map)
+		.single();
 
-    const map = maps.find((map: Map) => map.domain === params.map);
-    if (!map) {
-        throw error(404, 'Map not found');
-    }
+	if (mapError) {
+		console.error('Error fetching map:', mapError);
+		throw error(404, 'Map not found');
+	}
 
-    return {
-        map
-    };
-}
+	const { data: submissionsData, error: submissionsError } = await supabase
+		.from('data_submissions')
+		.select('*')
+		.eq('map_id', mapData.id);
+
+	if (submissionsError) {
+		console.error('Error fetching data submissions:', submissionsError);
+	}
+
+	const map = mapData;
+	const submissions = submissionsData;
+
+	return {
+		map,
+		submissions
+	};
+};

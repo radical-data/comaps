@@ -1,14 +1,9 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { Map } from '$lib/types/Map';
-	let maps: Map[] = [];
 
-	onMount(async () => {
-		const response = await fetch('/maps.json');
-		maps = await response.json();
+	export let data: { maps: Map[] };
 
-        maps.sort((a, b) => new Date(b.last_modified).getTime() - new Date(a.last_modified).getTime());
-	});
+	$: maps = data.maps;
 </script>
 
 <main>
