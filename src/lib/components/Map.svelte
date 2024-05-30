@@ -37,7 +37,7 @@
 				el.style.backgroundPosition = 'center';
 			};
 		} else {
-			el.style.aspectRatio = "1/1";
+			el.style.aspectRatio = '1/1';
 			el.style.display = 'flex';
 			el.style.alignItems = 'center';
 			el.style.justifyContent = 'center';
@@ -75,7 +75,7 @@
 			'bottom-right'
 		);
 
-		submissions.forEach(submission => {
+		submissions.forEach((submission) => {
 			const markerElement = createMarkerElement(submission);
 			new Marker({ element: markerElement })
 				.setLngLat([submission.location.coordinates[0], submission.location.coordinates[1]])
@@ -85,6 +85,9 @@
 	});
 </script>
 
+<nav>
+	<a href="/">Comaps</a>
+</nav>
 <div class="map" data-testid="map" bind:this={mapContainer} />
 
 <style>
@@ -96,9 +99,30 @@
 		z-index: 1;
 	}
 
-	.marker {
-		background-color: #3FB1CE;
+	:global(.marker) {
+		background-color: #3fb1ce;
 		border: none;
 		cursor: pointer;
+	}
+
+	nav {
+		z-index: 2;
+		position:fixed;
+		box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+		padding: 10px;
+		margin: 10px;
+		background-color: #ffffff;
+		border-radius: 10px;
+	}
+
+	nav a {
+		color: black;
+		text-decoration: none;
+		/* font-size: 1.5rem; */
+		font-weight: bold;
+	}
+
+	nav a:hover {
+		color: #ddd;
 	}
 </style>
