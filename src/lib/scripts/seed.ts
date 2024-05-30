@@ -33,9 +33,9 @@ const generateUUID = (): string => {
 const generateMaps = async (numMaps: number): Promise<Map[]> => {
     const maps: Map[] = [];
     for (let i = 0; i < numMaps; i++) {
-        const name = `${await getRandomWords(3)}`;
+        const name = `${(await getRandomWords(3)).join(' ')}`;
         const domain = getRandomHash();
-        const description = `This is a map about ${await getRandomWords(5)}`;
+        const description = `This is a map about ${(await getRandomWords(5)).join(' ')}`;
         maps.push({ id: generateUUID(), name, domain, description, style: '' });
     }
     return maps;
