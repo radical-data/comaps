@@ -1,14 +1,16 @@
-<script>
-	import Map from '../../lib/components/Map.svelte';
+<script lang="ts">
+	import MapComponent from '$lib/components/Map.svelte';
 
 	export let data;
+
+	const { map, submissions } = data;
 </script>
 
 <!-- <main> -->
-	<h1>{data.map.name}</h1>
-	<p>{data.map.description}</p>
+	<!-- <h1>{map.name}</h1>
+	<p>{map.description}</p> -->
 
-	<Map></Map>
+	<MapComponent {map} {submissions} />
 <!-- </main> -->
 
 <style>
