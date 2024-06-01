@@ -47,7 +47,11 @@
 			el.style.textAlign = 'center';
 			el.style.padding = '5px';
 			el.style.borderRadius = '50%';
-			el.textContent = submission.data_content;
+			if (submission.data_type === 'counter') {
+				el.textContent = submission.data_label;
+			} else {
+				el.textContent = submission.data_content;
+			}
 		}
 
 		el.addEventListener('click', () => {
@@ -107,7 +111,7 @@
 
 	nav {
 		z-index: 2;
-		position:fixed;
+		position: fixed;
 		box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 		padding: 10px;
 		margin: 10px;
