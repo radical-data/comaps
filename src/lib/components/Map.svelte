@@ -13,9 +13,9 @@
   
 	function createMarkerElement(submission) {
 	  const el = document.createElement('div');
-	  el.className = 'marker';
   
 	  if (submission.data_type === 'photo') {
+		el.className = 'marker photo-marker';
 		const img = new Image();
 		img.src = submission.data_content;
 		img.onload = () => {
@@ -32,28 +32,10 @@
 		  el.style.width = `${width}px`;
 		  el.style.height = `${height}px`;
 		  el.style.backgroundImage = `url(${submission.data_content})`;
-		  el.style.backgroundSize = 'contain';
-		  el.style.backgroundRepeat = 'no-repeat';
-		  el.style.backgroundPosition = 'center';
 		};
 	  } else {
-		el.style.aspectRatio = '1/1';
-		el.style.display = 'flex';
-		el.style.alignItems = 'center';
-		el.style.justifyContent = 'center';
-		el.style.backgroundColor = '#ffffff';
-		el.style.border = "2px black solid"
-		el.style.color = 'black';
-		el.style.fontSize = '12px';
-		el.style.textAlign = 'center';
-		el.style.padding = '5px';
-		el.style.borderRadius = '50%';
-		el.style.boxShadow = "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px";
-		if (submission.data_type === 'counter') {
-		  el.textContent = submission.data_label;
-		} else {
-		  el.textContent = submission.data_content;
-		}
+		el.className = 'marker text-marker';
+		el.textContent = submission.data_type === 'counter' ? submission.data_label : submission.data_content;
 	  }
   
 	  el.addEventListener('click', () => {
@@ -122,6 +104,29 @@
 	  background-color: #3fb1ce;
 	  border: none;
 	  cursor: pointer;
+	}
+  
+	:global(.photo-marker) {
+	  background-size: contain;
+	  background-repeat: no-repeat;
+	  background-position: center;
+	  border-radius: 50%;
+	  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+	}
+  
+	:global(.text-marker) {
+	  aspect-ratio: 1;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  background-color: #ffffff;
+	  border: 2px black solid;
+	  color: black;
+	  font-size: 12px;
+	  text-align: center;
+	  padding: 5px;
+	  border-radius: 50%;
+	  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 	}
   
 	nav {
