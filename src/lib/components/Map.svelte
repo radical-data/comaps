@@ -41,7 +41,8 @@
 		el.style.display = 'flex';
 		el.style.alignItems = 'center';
 		el.style.justifyContent = 'center';
-		el.style.backgroundColor = '#3FB1CE';
+		el.style.backgroundColor = '#ffffff';
+		el.style.border = "2px black solid"
 		el.style.color = 'black';
 		el.style.fontSize = '12px';
 		el.style.textAlign = 'center';
