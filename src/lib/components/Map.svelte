@@ -48,6 +48,7 @@
 		el.style.textAlign = 'center';
 		el.style.padding = '5px';
 		el.style.borderRadius = '50%';
+		el.style.boxShadow = "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px";
 		if (submission.data_type === 'counter') {
 		  el.textContent = submission.data_label;
 		} else {
