@@ -47,7 +47,6 @@
 		el.className = 'marker text-marker';
 		el.textContent = submission.data_type === 'counter' ? submission.data_label : submission.data_content;
 		el.style.backgroundColor = color;
-		el.style.borderColor = color;
 	  }
   
 	  return el;
@@ -144,7 +143,7 @@
 	  align-items: center;
 	  justify-content: center;
 	  background-color: #ffffff;
-	  border: 2px solid;
+	  border: 3px solid black;
 	  color: black;
 	  font-size: 12px;
 	  text-align: center;
